@@ -1,8 +1,8 @@
-DROP DATABASE IF EXISTS burgers_db;
+DROP DATABASE IF EXISTS s12moo2txe7gr34j;
 
-CREATE DATABASE burgers_db;
+CREATE DATABASE s12moo2txe7gr34j;
 
-USE burgers_db;
+USE s12moo2txe7gr34j;
 
 CREATE TABLE burgers (
     id INT NOT NULL AUTO_INCREMENT,
