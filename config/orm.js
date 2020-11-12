@@ -42,7 +42,7 @@ const orm = {
         })
     },
     updateOne: function (setInput, condition, cb) {
-        connection.query("UPDATE burgers SET ?? WHERE ?", [setInput, condition], function (err, results) {
+        connection.query("UPDATE burgers SET ? WHERE ?", [setInput, condition], function (err, results) {
             if (err) throw err;
             cb(results);
         })
