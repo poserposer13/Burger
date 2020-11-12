@@ -35,8 +35,8 @@ const orm = {
             cb(result);
         });
     },
-    insertOne: function (valuesInput, cb) {
-        connection.query("INSERT INTO burgers (burger_name) VALUES (?)", [valuesInput], function (err, results) {
+    insertOne: function (table, columns, valuesInput, cb) {
+        connection.query("INSERT INTO ?? (??) VALUES (?)", [table, columns, valuesInput], function (err, results) {
             if (err) throw err;
             cb(results);
         })

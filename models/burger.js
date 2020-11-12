@@ -6,8 +6,8 @@ const burger = {
             cb(res);
         });
     },
-    create: function(valuesInput, cb){
-        orm.insertOne(valuesInput, function(res){
+    create: function(columns, valuesInput, cb){
+        orm.insertOne("burgers", columns, valuesInput, function(res){
             cb(res);
         });
     },

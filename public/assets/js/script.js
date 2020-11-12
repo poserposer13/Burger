@@ -20,7 +20,7 @@ $(function(){
         e.preventDefault();
         
         const newBurger = {
-            name: $("#burger").val().trim(),
+            burger_name: $("#burger").val().trim(),
             devoured: $("[name=devoured]:checked").val().trim()
         };
         $.ajax("/api/burgers", {
