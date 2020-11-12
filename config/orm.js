@@ -19,7 +19,7 @@ function objToSql(ob) {
             if (typeof value === "string" && value.indexOf(" ") >= 0) {
                 value = "'" + value + "'";
             }
-            arr.push(key + "=" + value);
+            arr.push(key + " = " + value);
         }
     }
 
@@ -41,11 +41,22 @@ const orm = {
             cb(results);
         })
     },
-    updateOne: function (setInput, condition, cb) {
-        connection.query("UPDATE burgers SET ? WHERE ?", [setInput, condition], function (err, results) {
-            if (err) throw err;
-            cb(results);
-        })
+    updateOne: function (table, objColVals, condition, cb) {
+        let queryString = "UPDATE " + table;
+
+        queryString += " SET ";
+        queryString += objToSql(objColVals);
+        queryString += " WHERE ";
+        queryString += condition;
+
+        // console.log(queryString);
+        connection.query(queryString, function (err, result) {
+            if (err) {
+                throw err;
+            }
+
+            cb(result);
+        });
     },
     delete: function (table, condition, cb) {
         let queryString = "DELETE FROM " + table;
