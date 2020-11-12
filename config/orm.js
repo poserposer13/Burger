@@ -41,16 +41,9 @@ const orm = {
             cb(results);
         })
     },
-    updateOne: function (table, objColVals, condition, cb) {
-        let queryString = "UPDATE " + table;
-
-        queryString += " SET ";
-        queryString += objToSql(objColVals);
-        queryString += " WHERE ";
-        queryString += condition;
-
-        // console.log(queryString);
-        connection.query(queryString, function (err, result) {
+    updateOne: function (table, col, val, condition, cb) {
+       
+        connection.query("UPDATE ?? SET ?? = ? WHERE ?", [table, col, val, condition], function (err, result) {
             if (err) {
                 throw err;
             }

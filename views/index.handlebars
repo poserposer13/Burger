@@ -1,10 +1,10 @@
-<div class="jumbotron jumbotron-fluid">
+<div class="jumbotron jumbotron-fluid bg-dark">
   <div class="container-fluid">
-    <h1 class="display-4 text-center">Burgers</h1>
+    <h1 class="display-4 text-center text-white">Burgers</h1>
     {{!-- <img src="../public/assets/images/burger.jpg" class="img-thumbnail"> --}}
   </div>
 </div>
-<div class="container-fluid">
+<div class="container-fluid bg-dark text-white">
 
   <div class="row">
     <div class="col-sm">
@@ -14,7 +14,7 @@
       <ul>
         {{#each burgers}}
         {{#unless devoured}}
-        {{> burgers/burger-block devoured=false}}
+        {{> burgers/burger-block devour=false}}
         {{/unless}}
         {{/each}}
       </ul>
@@ -22,10 +22,10 @@
       <div class="col-sm">
         <h2>Burgers that have been eaten</h2>
 
-        <ul>
+        <ul class="text-muted">
           {{#each burgers}}
           {{#if devoured}}
-          {{> burgers/burger-block devoured=true}}
+          {{burger_name}}
           {{/if}}
           {{/each}}
         </ul>
@@ -36,7 +36,7 @@
 
   </div>
 
-  <div class="row">
+  <div class="row bg-dark text-white">
     <div class="col-sm m-3">
       <h2>Add a Burger</h2>
       <form class="create-form m1">
@@ -47,7 +47,7 @@
         </div>
 
         <div class="form-group">
-          <label for="devoured">Has it been eaten?</label><br>
+          <label for="devour">Has it been eaten?</label><br>
           <input type="radio" name="devoured" value="1"> Eaten?<br>
           <input type="radio" name="devoured" value="0" checked> Not Eaten?
         </div>
