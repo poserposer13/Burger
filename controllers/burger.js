@@ -10,7 +10,7 @@ router.get("/", function (req, res) {
         burgers: data
       };
       console.log(hbsObject);
-      res.render("index", data);
+      res.render("index", hbsObject);
     });
   });
 
@@ -30,11 +30,11 @@ router.get("/", function (req, res) {
     burger.update({
       devoured: req.body.devoured
     }, condition, function(result) {
-      if (result.changedRows == 0) {
+      if (result.changedRows === 0) {
         return res.status(404).end();
-      } else {
+      } 
         res.status(200).end();
-      }
+      
     });
   });
   

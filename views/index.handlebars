@@ -1,42 +1,62 @@
-<h1>Burgers</h1>
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">Burgers</h1>
+    {{!-- <img src="../public/assets/images/burger.jpg" class="img-thumbnail"> --}}
+  </div>
+</div>
+<div class="container-fluid">
 
-<h2>Would you eat one of these burgers?</h2>
+  <div class="row">
+    <div class="col-sm">
+      <h2>Would you eat one of these burgers?</h2>
 
 
-<ul>
-    {{#each burger}}
-    {{#unless devoured}}
-        {{> burgers/burger-block devoured=true}}
-    {{/unless}}
-    {{/each}}
-</ul>
-
-<h2>Burgers that have been eaten</h2>
-
-<ul>
-    {{#each burger}}
-    {{#if devoured}}
+      <ul>
+        {{#each burger}}
+        {{#unless devoured}}
         {{> burgers/burger-block devoured=false}}
-    {{/if}}
-    {{/each}}
-</ul>
+        {{/unless}}
+        {{/each}}
+      </ul>
+    </div>
+      <div class="col-sm">
+        <h2>Burgers that have been eaten</h2>
 
+        <ul>
+          {{#each burger}}
+          {{#if devoured}}
+          {{> burgers/burger-block devoured=true}}
+          {{/if}}
+          {{/each}}
+        </ul>
 
+      </div>
 
+    </div>
 
-<h2>Add a Burger</h2>
-<form class="create-form">
-
-  <div class="form-group">
-    <label for="burger">Burger:</label>
-    <input type="text" id="burger" name="burger_name">
   </div>
 
-  <div class="form-group">
-    <label for="devoured">Eaten</label><br>
-    <input type="radio" name="devoured" value="1" checked> DEVOURED<br>
-    <input type="radio" name="devoured" value="0"> Not Eaten
+  <div class="row">
+    <div class="col-sm">
+      <h2>Add a Burger</h2>
+      <form class="create-form">
+
+        <div class="form-group">
+          <label for="burger">Burger:</label>
+          <input type="text" id="burger" name="burger_name">
+        </div>
+
+        <div class="form-group">
+          <label for="devoured">Eaten</label><br>
+          <input type="radio" name="devoured" value="1" checked> DEVOURED<br>
+          <input type="radio" name="devoured" value="0"> Not Eaten
+        </div>
+
+        <button type="submit">Add Burger</button>
+      </form>
+
+    </div>
+
   </div>
 
-  <button type="submit">Add Burger</button>
-</form>
+</div>
